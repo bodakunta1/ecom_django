@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ecom/  # your virtualenv folder name, adjust if different
+
+# Django stuff:
+*.sqlite3
+/staticfiles/
+/media/
+
+# VSCode settings
+.vscode/
+
+# IDEs and editors
+*.idea/
+*.vscode/
+*.DS_Store
+
+# Logs
+*.log

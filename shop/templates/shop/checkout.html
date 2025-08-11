@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Checkout{% endblock %}
+{% block content %}
+<h2>Checkout</h2>
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="full_name" class="form-label">Full Name</label>
+    <input type="text" id="full_name" name="full_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <textarea id="address" name="address" class="form-control" rows="2" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="city" class="form-label">City</label>
+    <input type="text" id="city" name="city" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="postcode" class="form-label">Postcode</label>
+    <input type="text" id="postcode" name="postcode" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Place Order</button>
+  <a href="{% url 'shop:cart_detail' %}" class="btn btn-secondary ms-2">Back to Cart</a>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ product.title }}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    {% if product.image %}
+      <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.title }}">
+    {% else %}
+      <img src="{% static 'img/no-image.png' %}" class="img-fluid rounded" alt="No image">
+    {% endif %}
+  </div>
+  <div class="col-md-6">
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <h4 class="text-primary">${{ product.price }}</h4>
+    <form method="post" action="{% url 'shop:add_to_cart' product.id %}">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control" style="width:100px;">
+      </div>
+      <button type="submit" class="btn btn-success">Add to Cart</button>
+      <a href="{% url 'shop:product_list' %}" class="btn btn-secondary ms-2">Back to Products</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
